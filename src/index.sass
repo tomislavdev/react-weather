@@ -1,0 +1,20 @@
+// ----- Global variables and mixins ----- //
+
+$base-color: #34313B
+
+$border-radius: 5px
+
+@mixin mobile
+  @media (max-width: 959.5px)
+    @content
+
+// ----- End of global variables and mixins ----- //
+
+body
+  margin: 0
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+code
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace

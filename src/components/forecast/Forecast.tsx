@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
 import { useActions } from "../../hooks/useActions";
 import './forecast.sass'
+import DailyForecast from "../daily-forecast/DailyForecast";
 
 interface City {
   name: string;
@@ -40,7 +41,15 @@ const Forecast: React.FC = () => {
 
       { state.loading && <div className="loading">Loading...</div> }
       { state.error && <h3 className="error">{ state.error }</h3> }
-      { state.data.current && <div>{ state.data.current.temp }</div> }
+      { state.data.daily && (
+        <div className="forecast-container">
+          {
+            state.data.daily.map((dailyForecast: object, index: number) => {
+              return index === 0 ? null : <DailyForecast key={ index } index={ index } data={ dailyForecast } />;
+            })
+          }
+        </div>
+      ) }
     </div>
   );
 };

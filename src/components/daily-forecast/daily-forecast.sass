@@ -1,0 +1,92 @@
+@import "../../index.sass"
+
+.daily-forecast
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: 100%
+  width: 14%
+  background: $base-color
+  @media (max-width: 959px)
+    width: 100%
+    padding: 1rem 0
+
+  > div
+    margin: auto
+    height: 85%
+    width: calc(100% - 1px)
+
+    .date
+      display: flex
+      flex-direction: column
+      font-size: 0.7rem
+      text-align: center
+      color: white
+
+      .day-name
+        font-weight: 600
+        font-size: 0.9rem
+
+    .more-info
+      display: none
+      background: rgb(39, 39, 47)
+      position: absolute
+      border-radius: $border-radius
+      flex-direction: column
+      align-items: center
+      padding: 1rem
+      margin-left: -50px
+      width: 200px
+
+      div
+        color: white
+
+      > div:first-of-type
+        padding-bottom: 1rem
+        font-weight: 600
+        margin-top: -0.5rem
+
+      > div:not(:first-of-type)
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        padding: 0.2rem 1rem
+        font-size: 0.9rem
+
+        > div:last-of-type
+          color: orange
+          font-size: 0.8rem
+
+    .tooltip
+      text-align: center
+      padding-top: 0.2rem
+
+      &:hover
+        cursor: pointer
+
+        .more-info
+          display: flex
+
+    .icon
+      display: flex
+      justify-content: center
+      height: 70px
+      width: 70px
+      margin: auto
+
+    .temperature, .status
+      text-align: center
+      color: white
+      font-size: 0.9rem
+      padding-top: 0.2rem
+
+.daily-forecast:not(:last-of-type)
+  > div
+    border-right: 1px dashed #fff
+    border-bottom: none
+    @media (max-width: 959px)
+      border-right: none
+      border-bottom: 1px dashed #fff
+      padding-bottom: 1rem

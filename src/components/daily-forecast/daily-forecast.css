@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.daily-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 14%;
+  background: #34313B;
+}
+@media (max-width: 959px) {
+  .daily-forecast {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}
+.daily-forecast > div {
+  margin: auto;
+  height: 85%;
+  width: calc(100% - 1px);
+}
+.daily-forecast > div .date {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  text-align: center;
+  color: white;
+}
+.daily-forecast > div .date .day-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.daily-forecast > div .more-info {
+  display: none;
+  background: #27272f;
+  position: absolute;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-left: -50px;
+  width: 200px;
+}
+.daily-forecast > div .more-info div {
+  color: white;
+}
+.daily-forecast > div .more-info > div:first-of-type {
+  padding-bottom: 1rem;
+  font-weight: 600;
+  margin-top: -0.5rem;
+}
+.daily-forecast > div .more-info > div:not(:first-of-type) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.2rem 1rem;
+  font-size: 0.9rem;
+}
+.daily-forecast > div .more-info > div:not(:first-of-type) > div:last-of-type {
+  color: orange;
+  font-size: 0.8rem;
+}
+.daily-forecast > div .tooltip {
+  text-align: center;
+  padding-top: 0.2rem;
+}
+.daily-forecast > div .tooltip:hover {
+  cursor: pointer;
+}
+.daily-forecast > div .tooltip:hover .more-info {
+  display: flex;
+}
+.daily-forecast > div .icon {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  margin: auto;
+}
+.daily-forecast > div .temperature, .daily-forecast > div .status {
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+  padding-top: 0.2rem;
+}
+
+.daily-forecast:not(:last-of-type) > div {
+  border-right: 1px dashed #fff;
+  border-bottom: none;
+}
+@media (max-width: 959px) {
+  .daily-forecast:not(:last-of-type) > div {
+    border-right: none;
+    border-bottom: 1px dashed #fff;
+    padding-bottom: 1rem;
+  }
+}
+
+/*# sourceMappingURL=daily-forecast.css.map */
