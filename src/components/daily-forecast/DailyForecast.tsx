@@ -10,7 +10,7 @@ interface DailyForecastProps {
 const DailyForecast: React.FC<DailyForecastProps> = ({ data, index }) => {
   const currentDay = moment.unix(data.dt);
   const currentDayName = index === 1 ? 'Tomorrow' : currentDay.format('dddd');
-  const weatherIcon = `http://openweathermap.org/img/wn/${ data.weather[0].icon }.png`;
+  const weatherIcon = `${ process.env.REACT_APP_WEATHER_API_ICONS_ENDPOINT }${ data.weather[0].icon }.png`;
   const temperatures = `${ Math.floor(data.temp.min) }° / ${ Math.floor(data.temp.max) }°`;
 
   return (
