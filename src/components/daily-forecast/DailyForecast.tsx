@@ -9,7 +9,7 @@ interface DailyForecastProps {
 
 const DailyForecast: React.FC<DailyForecastProps> = ({ data, index }) => {
   const currentDay = moment.unix(data.dt);
-  const currentDayName = index === 1 ? 'Tomorrow' : currentDay.format('dddd');
+  const currentDayName = index === 1 ? 'Today' : index === 2 ? 'Tomorrow' : currentDay.format('dddd');
   const weatherIcon = `${ process.env.REACT_APP_WEATHER_API_ICONS_ENDPOINT }${ data.weather[0].icon }.png`;
   const temperatures = `${ Math.floor(data.temp.min) }° / ${ Math.floor(data.temp.max) }°`;
 
@@ -49,7 +49,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({ data, index }) => {
         <div>
           <div className="date">
             <div className="day-name">{ currentDayName }</div>
-            <div className="day-date">{ currentDay.format('DD/MM/YYYY') }</div>
+            <div className="day-date">{ currentDay.format('DD.MM.YYYY') }</div>
           </div>
           <div className="tooltip">
             <img src="/images/tooltip.png" alt="More info" />

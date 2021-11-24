@@ -43,13 +43,10 @@ const Forecast: React.FC = () => {
       { state.error && <h3 className="error">{ state.error }</h3> }
       { state.data.daily && (
         <div className="forecast-container">
+          <DailyForecast key={ 0 } index={ 0 } data={ state.data.current } />
           {
             state.data.daily.map((dailyForecast: object, index: number) => {
-              if (index === 0) {
-                return <DailyForecast key={ index } index={ index } data={ state.data.current } />;
-              } else {
-                return <DailyForecast key={ index } index={ index } data={ dailyForecast } />;
-              }
+              return <DailyForecast key={ index + 1 } index={ index + 1 } data={ dailyForecast } />;
             })
           }
         </div>
