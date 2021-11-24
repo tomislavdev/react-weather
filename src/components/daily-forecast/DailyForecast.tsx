@@ -37,11 +37,11 @@ const DailyForecast: React.FC<DailyForecastProps> = ({ data, index }) => {
             </div>
             <div className="sunrise">
               <img src="/images/sunrise.svg" alt="Sunrise" />
-              <span>{ moment((data.sunrise * 1000)).format('HH:MM') }</span>
+              <span>{ new Date((data.sunrise * 1000)).toTimeString().substring(0, 5) }</span>
             </div>
             <div className="sunset">
               <img src="/images/sunset.svg" alt="Sunset" />
-              <span>{ moment((data.sunset * 1000)).format('HH:MM') }</span>
+              <span>{ new Date((data.sunset * 1000)).toTimeString().substring(0, 5) }</span>
             </div>
           </div>
         </div>
