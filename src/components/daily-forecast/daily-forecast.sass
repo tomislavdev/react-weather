@@ -7,7 +7,7 @@
   height: 100%
   width: 14%
   background: $base-color
-  @media (max-width: 959px)
+  @include mobile
     width: 100%
     padding: 1rem 0
 
@@ -37,6 +37,8 @@
       padding: 1rem
       margin-left: -50px
       width: 200px
+      @include mobile
+        margin-left: 35px
 
       div
         color: white
@@ -86,7 +88,7 @@
   > div
     border-right: 1px dashed #fff
     border-bottom: none
-    @media (max-width: 959px)
+    @include mobile
       border-right: none
       border-bottom: 1px dashed #fff
       padding-bottom: 1rem

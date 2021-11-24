@@ -52,7 +52,7 @@ code {
   border-radius: 5px;
   margin: auto;
 }
-@media (max-width: 959px) {
+@media (max-width: 959.5px) {
   .forecast-container {
     flex-direction: column;
     width: 300px;

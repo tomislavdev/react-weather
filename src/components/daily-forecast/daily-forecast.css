@@ -17,7 +17,7 @@ code {
   width: 14%;
   background: #34313B;
 }
-@media (max-width: 959px) {
+@media (max-width: 959.5px) {
   .daily-forecast {
     width: 100%;
     padding: 1rem 0;
@@ -49,6 +49,11 @@ code {
   padding: 1rem;
   margin-left: -50px;
   width: 200px;
+}
+@media (max-width: 959.5px) {
+  .daily-forecast > div .more-info {
+    margin-left: 35px;
+  }
 }
 .daily-forecast > div .more-info div {
   color: white;
@@ -99,7 +104,7 @@ code {
   border-right: 1px dashed #fff;
   border-bottom: none;
 }
-@media (max-width: 959px) {
+@media (max-width: 959.5px) {
   .daily-forecast:not(:last-of-type) > div {
     border-right: none;
     border-bottom: 1px dashed #fff;
