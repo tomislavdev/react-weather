@@ -5,10 +5,17 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from "./state";
 import Forecast from "./components/forecast/Forecast";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HourlyForecast from "./components/hourly-forecast/HourlyForecast";
 
 ReactDOM.render(
   <Provider store={ store }>
-    <Forecast/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<Forecast />} />
+        <Route path="/hourly" element={<HourlyForecast />} />
+      </Routes>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

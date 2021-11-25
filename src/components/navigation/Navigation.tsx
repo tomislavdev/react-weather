@@ -1,18 +1,17 @@
 import React from "react";
+import './navigation.sass'
+import { Link } from "react-router-dom";
 
 const Navigation: React.FC = () => {
-
-  const changeTabs = (event: React.MouseEvent<HTMLLIElement>) => {
-    debugger
-  };
-
   return (
-    <div className="nav">
-      <ul>
-        <li onClick={event => { changeTabs(event) }}>Current weather</li>
-        <li onClick={event => { changeTabs(event) }}>24 hours</li>
-      </ul>
-    </div>
+    <ul className="nav">
+      <li className={ window.location.pathname === "/" ? "hidden" : "" }>
+        <Link to="/">Current weather</Link>
+      </li>
+      <li className={ window.location.pathname === "/hourly" ? "hidden" : "" }>
+        <Link to="/hourly">24 hours</Link>
+      </li>
+    </ul>
   );
 }
 
