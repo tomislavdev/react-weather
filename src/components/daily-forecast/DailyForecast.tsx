@@ -18,7 +18,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({ data, index }) => {
       { index === 0 ?
         <div>
           <div className="current-title">
-            Current
+            Current weather
           </div>
           <div className="current-icon-container">
             <img src={ weatherIcon } alt="Weather" />

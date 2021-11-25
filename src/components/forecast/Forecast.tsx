@@ -4,6 +4,7 @@ import { RootState } from "../../state/reducers";
 import { useActions } from "../../hooks/useActions";
 import './forecast.sass'
 import DailyForecast from "../daily-forecast/DailyForecast";
+import Navigation from "../navigation/Navigation";
 
 interface City {
   name: string;
@@ -42,13 +43,20 @@ const Forecast: React.FC = () => {
       { state.loading && <div className="loading">Loading...</div> }
       { state.error && <h3 className="error">{ state.error }</h3> }
       { state.data.daily && (
-        <div className="forecast-container">
-          <DailyForecast key={ 0 } index={ 0 } data={ state.data.current } />
-          {
-            state.data.daily.map((dailyForecast: object, index: number) => {
-              return <DailyForecast key={ index + 1 } index={ index + 1 } data={ dailyForecast } />;
-            })
-          }
+        <div>
+          <Navigation/>
+          <div className="forecast-container">
+            <DailyForecast key={ 0 } index={ 0 } data={ state.data.current } />
+            <div className="inner-forecast-container disable-scrollbars">
+              <div className="scroll-arrows scroll-left">&larr;</div>
+              {
+                state.data.daily.map((dailyForecast: object, index: number) => {
+                  return <DailyForecast key={ index + 1 } index={ index + 1 } data={ dailyForecast } />;
+                })
+              }
+              <div className="scroll-arrows scroll-right">&rarr;</div>
+            </div>
+          </div>
         </div>
       ) }
     </div>

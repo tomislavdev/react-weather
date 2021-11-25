@@ -4,6 +4,10 @@ $base-color: #34313B
 
 $border-radius: 5px
 
+@mixin desktop
+  @media (min-width: 960px)
+    @content
+
 @mixin mobile
   @media (max-width: 959.5px)
     @content

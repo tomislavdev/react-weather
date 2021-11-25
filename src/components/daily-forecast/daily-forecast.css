@@ -20,21 +20,24 @@ code {
 .daily-forecast {
   display: flex;
   flex-direction: column;
+  flex: none;
   align-items: center;
   height: 100%;
-  width: 12.5%;
+  width: 120px;
   background: #34313B;
 }
 @media (max-width: 959.5px) {
   .daily-forecast {
-    width: 100%;
-    padding: 1rem 0;
+    width: 250px;
+    height: 220px;
+    margin: auto;
+    padding: 0;
   }
 }
 .daily-forecast > div {
   margin: auto;
   height: 85%;
-  width: calc(100% - 1px);
+  width: 100%;
 }
 .daily-forecast > div .date {
   display: flex;
@@ -54,13 +57,13 @@ code {
   border-radius: 5px;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  margin-left: -50px;
-  width: 200px;
+  padding: 0.5rem;
+  margin: -30px 0 0 -20px;
+  width: 150px;
 }
 @media (max-width: 959.5px) {
   .daily-forecast > div .more-info {
-    margin-left: 35px;
+    margin-left: 42px;
   }
 }
 .daily-forecast > div .more-info div {
@@ -114,20 +117,32 @@ code {
   }
 }
 
-.daily-forecast:last-of-type {
-  border-radius: 0 5px 5px 0;
-}
-@media (max-width: 959.5px) {
-  .daily-forecast:last-of-type {
-    border-radius: 0 0 5px 5px;
+@media (min-width: 960px) {
+  .daily-forecast:nth-child(2) .more-info {
+    margin-left: 0;
   }
 }
 
+@media (min-width: 960px) {
+  .daily-forecast:nth-child(9) .more-info {
+    margin-left: -50px;
+  }
+}
+
+.daily-forecast:last-of-type {
+  border-radius: 0 5px 5px 0;
+}
+
 .current-weather {
-  width: 350px;
-  height: 120%;
-  border-radius: 5px;
+  width: 300px;
+  height: 270px;
+  border-radius: 5px 5px 0 5px;
   background: #27272f;
+}
+@media (min-width: 960px) {
+  .current-weather {
+    margin-bottom: 40px;
+  }
 }
 .current-weather > div > div {
   display: flex;
@@ -137,6 +152,7 @@ code {
 }
 .current-weather > div .current-title {
   font-weight: 600;
+  font-size: 1.2rem;
 }
 .current-weather > div .current-icon-container {
   width: 60%;
