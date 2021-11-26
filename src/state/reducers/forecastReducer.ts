@@ -1,14 +1,59 @@
 import { Action, ActionType } from "../actions";
 
-interface forecastState {
+interface WeatherState {
+  icon: string;
+  main: string;
+}
+
+export interface CurrentForecastState {
+  dt: number;
+  clouds: number;
+  pressure: number;
+  humidity: number;
+  sunrise: number;
+  sunset: number;
+  temp: number;
+  wind_speed: number;
+  feels_like: number;
+  weather: WeatherState[];
+}
+
+export interface HourlyForecastState {
+  dt: number;
+  wind_speed: number;
+  feels_like: number;
+  clouds: number;
+  pressure: number;
+  humidity: number;
+  weather: WeatherState[];
+}
+
+export interface DailyForecastState {
+  dt: number;
+  wind_speed: number;
+  feels_like: {
+    day: number;
+    night: number;
+  };
+  clouds: number;
+  pressure: number;
+  humidity: number;
+  temp: {
+    min: number;
+    max: number;
+  },
+  weather: WeatherState[];
+}
+
+interface ForecastState {
   loading: boolean;
   error: string | null;
   data: {
     lat?: Number;
     lon?: Number;
-    current?: { [key: string]: any };
-    daily?: { [key: string]: any };
-    hourly?: { [key: string]: any };
+    current?: CurrentForecastState;
+    daily?: DailyForecastState[];
+    hourly?: HourlyForecastState[];
   };
 }
 
@@ -19,9 +64,9 @@ const initialState = {
 };
 
 const forecastReducer = (
-  state: forecastState = initialState,
+  state: ForecastState = initialState,
   action: Action
-): forecastState => {
+): ForecastState => {
   switch (action.type) {
     case ActionType.GET_FORECAST:
       return { loading: true, error: null, data: {} };

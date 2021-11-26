@@ -73,16 +73,15 @@
 .main-container .button-container {
   width: 900px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 0 auto 2rem auto;
 }
 @media (max-width: 959.5px) {
   .main-container .button-container {
-    justify-content: center;
     width: 100%;
   }
 }
-.main-container .button-container > button {
+.main-container .button-container .open-form-button {
   width: 200px;
   height: 40px;
   border: 1px solid #34313B;
@@ -92,8 +91,12 @@
   color: orange;
   cursor: pointer;
 }
-.main-container .button-container > button:hover {
+.main-container .button-container .open-form-button:hover {
   color: darkgray;
+}
+.main-container .button-container .open-form-button:disabled {
+  color: dimgray;
+  cursor: not-allowed;
 }
 
 /*# sourceMappingURL=forecast.css.map */

@@ -69,13 +69,12 @@
   .button-container
     width: 900px
     display: flex
-    justify-content: flex-end
+    justify-content: center
     margin: 0 auto 2rem auto
     @include mobile
-      justify-content: center
       width: 100%
 
-    > button
+    .open-form-button
       width: 200px
       height: 40px
       border: 1px solid $base-color
@@ -87,3 +86,7 @@
 
       &:hover
         color: darkgray
+
+    .open-form-button:disabled
+      color: dimgray
+      cursor: not-allowed

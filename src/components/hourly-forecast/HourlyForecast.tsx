@@ -45,7 +45,7 @@ const HourlyForecast:React.FC = (props) => {
             <div className="hourly-forecast disable-scrollbars">
               <div className="scroll-arrows scroll-left">&larr;</div>
               {
-                state.data.hourly.map((data: any, index: number) => {
+                state.data.hourly.map((data, index: number) => {
                   return (
                     <div className="inner-container" key={ index }>
                       <div className="hour">{ new Date((data.dt * 1000)).toTimeString().substring(0, 5) }</div>

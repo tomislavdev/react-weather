@@ -1,10 +1,12 @@
-import React, {ChangeEvent} from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
 import { useActions } from "../../hooks/useActions";
 import './forecast.sass'
 import DailyForecast from "../daily-forecast/DailyForecast";
 import Navigation from "../navigation/Navigation";
+import StationaryMetrics from "../stationary-metrics/StationaryMetrics";
+import CurrentForecast from "../current-forecast/CurrentForecast";
 
 interface City {
   name: string;
@@ -13,6 +15,7 @@ interface City {
 }
 
 const Forecast: React.FC = () => {
+  const [openForm, setOpenForm] = useState(false);
   const { getForecast } = useActions();
   const state = useSelector((state: RootState) => state.forecast);
   const cities: City[] = [
@@ -42,16 +45,16 @@ const Forecast: React.FC = () => {
 
       { state.loading && <div className="loading">Loading...</div> }
       { state.error && <h3 className="error">{ state.error }</h3> }
-      { state.data.daily && (
+      { state.data.daily && state.data.current && (
         <div>
           <Navigation/>
           <div className="forecast-container">
-            <DailyForecast key={ 0 } index={ 0 } data={ state.data.current } />
+            <CurrentForecast key={ 0 } currentForecast={ state.data.current } />
             <div className="inner-forecast-container disable-scrollbars">
               <div className="scroll-arrows scroll-left">&larr;</div>
               {
-                state.data.daily.map((dailyForecast: object, index: number) => {
-                  return <DailyForecast key={ index + 1 } index={ index + 1 } data={ dailyForecast } />;
+                state.data.daily.map((dailyForecast, index: number) => {
+                  return <DailyForecast key={ index } index={ index } dailyForecast={ dailyForecast } />;
                 })
               }
               <div className="scroll-arrows scroll-right">&rarr;</div>
@@ -61,8 +64,12 @@ const Forecast: React.FC = () => {
       ) }
 
       <div className="button-container">
-        <button>Add metrics manually</button>
+        <button className="open-form-button" disabled={ openForm } onClick={ event => setOpenForm(true)}>
+          Add metrics manually
+        </button>
       </div>
+
+      { openForm && <StationaryMetrics/> }
     </div>
   );
 };
