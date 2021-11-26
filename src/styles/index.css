@@ -1,0 +1,53 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  background: lightgray;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.disable-scrollbars {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.disable-scrollbars::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+  height: 0;
+}
+
+.scroll-arrows {
+  position: sticky;
+  width: 0;
+  height: 0;
+  top: calc(50% - 12px);
+  color: orange;
+  font-weight: 900;
+}
+@media (max-width: 959.5px) {
+  .scroll-arrows {
+    display: none;
+  }
+}
+
+.scroll-left {
+  left: 5px;
+}
+
+.scroll-right {
+  right: 18px;
+  margin-left: -18px;
+}
+
+/*# sourceMappingURL=index.css.map */

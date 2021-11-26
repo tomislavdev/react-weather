@@ -1,0 +1,64 @@
+.hourly-forecast-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+  background: #34313B;
+  margin: auto;
+  border-radius: 5px;
+}
+.hourly-forecast-container .side-titles, .hourly-forecast-container .inner-container {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  color: white;
+  padding: 0 1rem;
+  border-right: 1px solid darkgray;
+  font-size: 0.9rem;
+}
+.hourly-forecast-container .side-titles > div, .hourly-forecast-container .inner-container > div {
+  height: 1.2rem;
+  padding: 0.5rem 0;
+}
+.hourly-forecast-container .side-titles .hour, .hourly-forecast-container .inner-container .hour {
+  font-weight: 600;
+  height: 1.2rem;
+  padding-bottom: 0;
+  color: orange;
+}
+.hourly-forecast-container .side-titles .date, .hourly-forecast-container .inner-container .date {
+  padding-top: 0;
+  font-size: 0.8rem;
+}
+.hourly-forecast-container .side-titles .icon, .hourly-forecast-container .inner-container .icon {
+  height: 4rem;
+}
+.hourly-forecast-container .hourly-forecast {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: scroll;
+}
+.hourly-forecast-container .hourly-forecast .inner-container {
+  border-right: 1px solid darkgray;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.hourly-forecast-container .hourly-forecast .inner-container > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hourly-forecast-container .hourly-forecast .inner-container > div img {
+  width: 100%;
+}
+.hourly-forecast-container .hourly-forecast .inner-container:last-of-type {
+  border: none;
+}
+
+/*# sourceMappingURL=hourly-forecast.css.map */

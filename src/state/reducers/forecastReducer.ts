@@ -4,6 +4,8 @@ interface forecastState {
   loading: boolean;
   error: string | null;
   data: {
+    lat?: Number;
+    lon?: Number;
     current?: { [key: string]: any };
     daily?: { [key: string]: any };
     hourly?: { [key: string]: any };
