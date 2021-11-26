@@ -9,6 +9,8 @@
   background: $base-color
   margin: auto
   border-radius: $border-radius
+  @include mobile
+    width: 300px
 
   .side-titles, .inner-container
     width: 100px
@@ -20,6 +22,8 @@
     padding: 0 1rem
     border-right: 1px solid darkgray
     font-size: 0.9rem
+    @include mobile
+      width: 100%
 
     > div
       height: 1.2rem
@@ -38,17 +42,27 @@
     .icon
       height: 4rem
 
+  .side-titles
+    @include mobile
+      display: none
+
   .hourly-forecast
     width: 800px
     display: flex
     flex-direction: row
     justify-content: flex-start
     overflow-x: scroll
+    @include mobile
+      margin: auto
+      flex-direction: column
 
     .inner-container
       border-right: 1px solid darkgray
       align-items: center
       margin: 0.5rem 0
+      @include mobile
+        border-bottom: 1px solid orange
+        padding-bottom: 1rem
 
       > div
         width: 100%
@@ -58,7 +72,8 @@
 
         img
           width: 100%
-
+          @include mobile
+            width: 100px
 
     .inner-container:last-of-type
       border: none

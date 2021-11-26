@@ -32,7 +32,7 @@ const Forecast: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <form className="forecast-form">
         <select onChange={ showCityForecastOnChange }>
           <option className="default-option" value="">Select a city</option>
@@ -59,6 +59,10 @@ const Forecast: React.FC = () => {
           </div>
         </div>
       ) }
+
+      <div className="button-container">
+        <button>Add metrics manually</button>
+      </div>
     </div>
   );
 };

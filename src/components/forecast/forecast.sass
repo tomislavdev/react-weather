@@ -1,59 +1,89 @@
 @import "../../styles/base.sass"
 
-.forecast-form
+.main-container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   width: 100%
-  display: flex
-  flex-direction: row
-  justify-content: center
-  align-items: center
-  padding: 2rem 0 1rem 0
+  margin: auto
 
-  select
-    height: 30px
-    width: 300px
-    font-weight: 600
-    border-radius: $border-radius
-
-    .default-option
-      display: none
-
-.error, .loading
-  font-weight: 600
-  display: flex
-  justify-content: center
-  align-items: center
-
-.error
-  color: red
-
-.loading
-  color: $base-color
-
-.forecast-container
-  display: flex
-  flex-direction: row
-  justify-content: center
-  align-items: center
-  width: 900px
-  height: 230px
-  border-radius: $border-radius
-  margin: 0 auto 2rem auto
-  @include mobile
-    flex-direction: column
-    width: 300px
-    height: 100%
-    padding-bottom: 2rem
-
-  .inner-forecast-container
-    width: 600px
+  .forecast-form
+    width: 100%
     display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    padding: 2rem 0 1rem 0
+
+    select
+      height: 30px
+      width: 300px
+      font-weight: 600
+      border-radius: $border-radius
+
+      .default-option
+        display: none
+
+  .error, .loading
+    font-weight: 600
+    display: flex
+    justify-content: center
+    align-items: center
+
+  .error
+    color: red
+
+  .loading
+    color: $base-color
+
+  .forecast-container
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 900px
     height: 230px
-    overflow-x: scroll
-    position: relative
-    border-radius: 0 $border-radius $border-radius 0
+    border-radius: $border-radius
+    margin: 0 auto 2rem auto
     @include mobile
-      border-radius: 0 0 $border-radius $border-radius
       flex-direction: column
       width: 300px
-      margin-top: 0
-      overflow: initial
+      height: 100%
+
+    .inner-forecast-container
+      width: 600px
+      display: flex
+      height: 230px
+      overflow-x: scroll
+      position: relative
+      border-radius: 0 $border-radius $border-radius 0
+      @include mobile
+        border-radius: 0 0 $border-radius $border-radius
+        flex-direction: column
+        width: 300px
+        height: 100%
+        margin-top: 0
+        overflow: initial
+
+  .button-container
+    width: 900px
+    display: flex
+    justify-content: flex-end
+    margin: 0 auto 2rem auto
+    @include mobile
+      justify-content: center
+      width: 100%
+
+    > button
+      width: 200px
+      height: 40px
+      border: 1px solid $base-color
+      background: $base-color
+      font-weight: 600
+      border-radius: $border-radius
+      color: orange
+      cursor: pointer
+
+      &:hover
+        color: darkgray
