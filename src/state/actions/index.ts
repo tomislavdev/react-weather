@@ -5,7 +5,7 @@ export enum ActionType {
   SUBMIT_STATIONARY_METRICS = 'SUBMIT_STATIONARY_METRICS',
   SUBMIT_STATIONARY_METRICS_SUCCESS = 'SUBMIT_STATIONARY_METRICS_SUCCESS',
   SUBMIT_STATIONARY_METRICS_ERROR = 'SUBMIT_STATIONARY_METRICS_ERROR',
-  CLOSE_STATIONARY_METRICS_FORM = 'CLOSE_STATIONARY_METRICS_FORM'
+  TOGGLE_STATIONARY_METRICS_FORM = 'TOGGLE_STATIONARY_METRICS_FORM'
 }
 
 interface GetForecastAction {
@@ -36,11 +36,11 @@ interface SubmitStationaryMetricsError {
   payload: string;
 }
 
-interface CloseStationaryMetricsForm {
-  type: ActionType.CLOSE_STATIONARY_METRICS_FORM;
-  payload: string;
+interface ToggleStationaryMetricsForm {
+  type: ActionType.TOGGLE_STATIONARY_METRICS_FORM;
+  payload: boolean;
 }
 
 export type Action =
   GetForecastAction | GetForecastSuccessAction | GetForecastErrorAction |
-  SubmitStationaryMetrics | SubmitStationaryMetricsSuccess | SubmitStationaryMetricsError | CloseStationaryMetricsForm;
+  SubmitStationaryMetrics | SubmitStationaryMetricsSuccess | SubmitStationaryMetricsError | ToggleStationaryMetricsForm;

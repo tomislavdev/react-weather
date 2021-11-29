@@ -1,3 +1,72 @@
+.form-container {
+  position: absolute;
+  height: calc(100vh - 2rem);
+  top: 1rem;
+  overflow: auto;
+  border-radius: 5px;
+}
+.form-container .stationary-metrics-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 600px;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 5px;
+}
+@media (max-width: 959.5px) {
+  .form-container .stationary-metrics-form {
+    width: 350px;
+  }
+}
+.form-container .stationary-metrics-form .form-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.form-container .stationary-metrics-form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.form-container .stationary-metrics-form > div label {
+  padding-bottom: 0.2rem;
+  font-weight: 600;
+}
+.form-container .stationary-metrics-form > div input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: 30px;
+  width: 300px;
+  padding-left: 0.2rem;
+}
+.form-container .stationary-metrics-form > div .error {
+  height: 1rem;
+  font-size: 0.8rem;
+}
+.form-container .stationary-metrics-form .close-form, .form-container .stationary-metrics-form .submit-form {
+  width: 250px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.form-container .stationary-metrics-form .close-form:hover, .form-container .stationary-metrics-form .submit-form:hover {
+  color: darkgray;
+}
+.form-container .stationary-metrics-form .submit-form {
+  background: #34313B;
+  color: orange;
+}
+.form-container .stationary-metrics-form .close-form {
+  background: gray;
+  color: white;
+  margin-top: 0.5rem;
+}
 
-
-/*# sourceMappingURL=stationary-metrics.css.map */
+/*# sourceMappingURL=stationary-metrics-form.css.map */

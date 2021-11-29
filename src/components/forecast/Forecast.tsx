@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
 import { useActions } from "../../hooks/useActions";
@@ -15,9 +15,9 @@ interface City {
 }
 
 const Forecast: React.FC = () => {
-  const [openForm, setOpenForm] = useState(false);
-  const { getForecast } = useActions();
-  const state = useSelector((state: RootState) => state.forecast);
+  const { getForecast, toggleStationaryMetrics } = useActions();
+  const forecastState = useSelector((state: RootState) => state.forecast);
+  const stationaryMetricsIsOpened = useSelector((state: RootState) => state.stationaryMetrics.isOpened);
   const cities: City[] = [
     { name: 'London', lat: '51.507351', lon: '-0.127758' },
     { name: 'Paris', lat: '48.856613', lon: '2.352222' },
@@ -43,17 +43,17 @@ const Forecast: React.FC = () => {
         </select>
       </form>
 
-      { state.loading && <div className="loading">Loading...</div> }
-      { state.error && <h3 className="error">{ state.error }</h3> }
-      { state.data.daily && state.data.current && (
+      { forecastState.loading && <div className="loading">Loading...</div> }
+      { forecastState.error && <h3 className="error">{ forecastState.error }</h3> }
+      { forecastState.data.daily && forecastState.data.current && (
         <div>
           <Navigation/>
           <div className="forecast-container">
-            <CurrentForecast key={ 0 } currentForecast={ state.data.current } />
+            <CurrentForecast key={ 0 } currentForecast={ forecastState.data.current } />
             <div className="inner-forecast-container disable-scrollbars">
               <div className="scroll-arrows scroll-left">&larr;</div>
               {
-                state.data.daily.map((dailyForecast, index: number) => {
+                forecastState.data.daily.map((dailyForecast, index: number) => {
                   return <DailyForecast key={ index } index={ index } dailyForecast={ dailyForecast } />;
                 })
               }
@@ -64,12 +64,13 @@ const Forecast: React.FC = () => {
       ) }
 
       <div className="button-container">
-        <button className="open-form-button" disabled={ openForm } onClick={ event => setOpenForm(true)}>
+        <button className="open-form-button"
+          disabled={ stationaryMetricsIsOpened } onClick={ () => toggleStationaryMetrics(true) }>
           Add metrics manually
         </button>
       </div>
 
-      { openForm && <StationaryMetrics/> }
+      { stationaryMetricsIsOpened && <StationaryMetrics/> }
     </div>
   );
 };
