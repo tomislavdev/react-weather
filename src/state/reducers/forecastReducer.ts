@@ -51,6 +51,7 @@ interface ForecastState {
   data: {
     lat?: Number;
     lon?: Number;
+    timezone?: string;
     current?: CurrentForecastState;
     daily?: DailyForecastState[];
     hourly?: HourlyForecastState[];

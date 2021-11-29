@@ -1,3 +1,12 @@
+.city-title {
+  font-weight: 600;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 1rem 0;
+}
+
 .hourly-forecast-container {
   display: flex;
   flex-direction: row;

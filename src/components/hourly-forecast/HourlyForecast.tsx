@@ -30,6 +30,7 @@ const HourlyForecast:React.FC = (props) => {
       { state.error && <h3 className="error">{ state.error }</h3> }
       { !state.error && !state.loading && state.data.hourly && (
         <div>
+          { state.data.timezone && (<div className="city-title">{ state.data.timezone.split('/')[1]}</div>)}
           <Navigation/>
           <div className="hourly-forecast-container">
             <div className="side-titles">

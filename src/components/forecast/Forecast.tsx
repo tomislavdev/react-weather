@@ -34,10 +34,18 @@ const Forecast: React.FC = () => {
     getForecast(city.lat, city.lon);
   };
 
+  const openStationaryMetricsForm = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+    toggleStationaryMetrics(true);
+  }
+
   return (
     <div className="main-container">
       <form className="forecast-form">
-        <select onChange={ showCityForecastOnChange }>
+        <select onChange={ showCityForecastOnChange } value={ forecastState.data.timezone?.split('/')[1] }>
           <option className="default-option" value="">Select a city</option>
           { cities.map(city => <option value={ city.name } key={ city.name }>{ city.name }</option>) }
         </select>
@@ -65,7 +73,7 @@ const Forecast: React.FC = () => {
 
       <div className="button-container">
         <button className="open-form-button"
-          disabled={ stationaryMetricsIsOpened } onClick={ () => toggleStationaryMetrics(true) }>
+          disabled={ stationaryMetricsIsOpened } onClick={ () => openStationaryMetricsForm()}>
           Add metrics manually
         </button>
       </div>
