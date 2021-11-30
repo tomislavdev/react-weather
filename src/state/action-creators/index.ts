@@ -14,6 +14,9 @@ export const getForecast = (lat: string, lon: string) => {
         units=metric&exclude=minutely,alerts&appid=${ process.env.REACT_APP_WEATHER_API_KEY }`.replaceAll(' ', '');
       const data = await axios.get(weatherApiUrl);
 
+      // Get only 24 hours
+      data.data.hourly = data.data.hourly.slice(0, 24);
+
       dispatch({
         type: ActionType.GET_FORECAST_SUCCESS,
         payload: data.data
