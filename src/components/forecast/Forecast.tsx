@@ -7,30 +7,18 @@ import DailyForecast from "../daily-forecast/DailyForecast";
 import Navigation from "../navigation/Navigation";
 import StationaryMetrics from "../stationary-metrics/StationaryMetrics";
 import CurrentForecast from "../current-forecast/CurrentForecast";
-
-interface City {
-  name: string;
-  lat: string;
-  lon: string;
-}
+import { cities } from "../../data/cities";
+import { City } from "../../models/city";
 
 const Forecast: React.FC = () => {
   const { getForecast, toggleStationaryMetrics } = useActions();
   const forecastState = useSelector((state: RootState) => state.forecast);
   const stationaryMetricsIsOpened = useSelector((state: RootState) => state.stationaryMetrics.isOpened);
-  const cities: City[] = [
-    { name: 'London', lat: '51.507351', lon: '-0.127758' },
-    { name: 'Paris', lat: '48.856613', lon: '2.352222' },
-    { name: 'Berlin', lat: '52.520008', lon: '13.404954' },
-    { name: 'Sofia', lat: '42.697708', lon: '23.321867' },
-    { name: 'Stockholm', lat: '59.329323', lon: '18.068581' },
-    { name: 'Rome', lat: '41.902782', lon: '12.496366' },
-    { name: 'Brussels', lat: '50.8505', lon: '4.3488' },
-  ];
+  const loadedCity = cities.filter(city => city.name === forecastState.data.timezone?.split('/')[1]);
 
   const showCityForecastOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
     // Get lat and lon for the chosen city
-    const city: City = cities.filter((city: City) => city.name === event.target.value)[0];
+    const city: City = cities.filter((city: City) => city.id === +event.target.value)[0];
     getForecast(city.lat, city.lon);
   };
 
@@ -45,9 +33,9 @@ const Forecast: React.FC = () => {
   return (
     <div className="main-container">
       <form className="forecast-form">
-        <select onChange={ showCityForecastOnChange } value={ forecastState.data.timezone?.split('/')[1] }>
+        <select onChange={ showCityForecastOnChange } value={ loadedCity.length ? loadedCity[0].id : '' }>
           <option className="default-option" value="">Select a city</option>
-          { cities.map(city => <option value={ city.name } key={ city.name }>{ city.name }</option>) }
+          { cities.map(city => <option value={ city.id } key={ city.id }>{ city.name }</option>) }
         </select>
       </form>
 

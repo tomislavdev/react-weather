@@ -7,7 +7,7 @@ import { useActions } from "../../hooks/useActions";
 import './hourly-forecast.sass'
 import moment from "moment";
 
-const HourlyForecast:React.FC = (props) => {
+const HourlyForecast:React.FC = () => {
   const { getForecast } = useActions();
   const state = useSelector((state: RootState) => state.forecast);
   const location = useLocation();
