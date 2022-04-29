@@ -12,12 +12,13 @@ import { City } from "../../models/city";
 
 const Forecast: React.FC = () => {
   const { getForecast, toggleStationaryMetrics } = useActions();
+
   const forecastState = useSelector((state: RootState) => state.forecast);
   const stationaryMetricsIsOpened = useSelector((state: RootState) => state.stationaryMetrics.isOpened);
   const loadedCity = cities.filter(city => city.name === forecastState.data.timezone?.split('/')[1]);
 
   const showCityForecastOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    // Get lat and lon for the chosen city
+    // Get lat and lon of the chosen city
     const city: City = cities.filter((city: City) => city.id === +event.target.value)[0];
     getForecast(city.lat, city.lon);
   };

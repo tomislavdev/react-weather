@@ -17,7 +17,7 @@ const HourlyForecast:React.FC = () => {
     const lat = parameters.get('lat') || process.env.REACT_APP_DEFAULT_LAT || '';
     const lon = parameters.get('lon') || process.env.REACT_APP_DEFAULT_LON || '';
 
-    // Get weather info for these lat and lon if such is missing in state
+    // Get weather info for these lat and lon if such are missing in the state
     if (Number(lat) !== state.data.lat || Number(lon) !== state.data.lon) {
       getForecast(lat.toString(), lon.toString());
     }
