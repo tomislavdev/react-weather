@@ -34,6 +34,7 @@ code {
   top: calc(50% - 12px);
   color: orange;
   font-weight: 900;
+  cursor: pointer;
 }
 @media (max-width: 959.5px) {
   .scroll-arrows {
