@@ -13,7 +13,7 @@
   flex-direction: row
   justify-content: space-between
   align-items: center
-  width: 900px
+  width: 915px
   background: $base-color
   margin: auto
   border-radius: $border-radius
@@ -27,8 +27,7 @@
     align-items: flex-end
     justify-content: flex-start
     color: white
-    padding: 0 1rem
-    border-right: 1px solid darkgray
+    padding: 0 1.5rem
     font-size: 0.9rem
     @include mobile
       width: 100%
@@ -41,7 +40,7 @@
       font-weight: 600
       height: 1.2rem
       padding-bottom: 0
-      color: orange
+      color: $orange
 
     .date
       padding-top: 0
@@ -60,16 +59,16 @@
     flex-direction: row
     justify-content: flex-start
     overflow-x: scroll
+    scroll-behavior: smooth
     @include mobile
       margin: auto
       flex-direction: column
 
     .inner-container
-      border-right: 1px solid darkgray
       align-items: center
       margin: 0.5rem 0
       @include mobile
-        border-bottom: 1px solid orange
+        border-bottom: 1px solid $orange
         padding-bottom: 1rem
 
       > div

@@ -66,7 +66,7 @@
   font-size: 0.9rem;
 }
 .daily-forecast > div .more-info > div:not(:first-of-type) > div:last-of-type {
-  color: orange;
+  color: #FFA500FF;
   font-size: 0.8rem;
 }
 .daily-forecast > div .tooltip {

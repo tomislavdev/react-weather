@@ -33,7 +33,7 @@
 .current-weather > div .current-icon-container span {
   font-size: 2rem;
   font-weight: 600;
-  color: orange;
+  color: #FFA500FF;
 }
 .current-weather > div .status {
   font-size: 1.5rem;

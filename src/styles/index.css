@@ -32,7 +32,7 @@ code {
   width: 0;
   height: 0;
   top: calc(50% - 12px);
-  color: orange;
+  color: #FFA500FF;
   font-weight: 900;
   cursor: pointer;
 }
@@ -47,8 +47,12 @@ code {
 }
 
 .scroll-right {
-  right: 18px;
-  margin-left: -18px;
+  right: 20px;
+  margin-left: -20px;
+}
+
+.arrow-right {
+  transform: rotate(180deg);
 }
 
 /*# sourceMappingURL=index.css.map */

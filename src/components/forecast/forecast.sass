@@ -58,6 +58,7 @@
       overflow-x: scroll
       position: relative
       border-radius: 0 $border-radius $border-radius 0
+      scroll-behavior: smooth
       @include mobile
         border-radius: 0 0 $border-radius $border-radius
         flex-direction: column
@@ -81,7 +82,7 @@
       background: $base-color
       font-weight: 600
       border-radius: $border-radius
-      color: orange
+      color: $orange
       cursor: pointer
 
       &:hover

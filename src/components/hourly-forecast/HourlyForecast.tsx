@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../navigation/Navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
@@ -8,7 +8,9 @@ import './hourly-forecast.sass'
 import moment from "moment";
 
 const HourlyForecast:React.FC = () => {
+  const [, setSlide] = useState(0);
   const { getForecast } = useActions();
+
   const state = useSelector((state: RootState) => state.forecast);
   const location = useLocation();
 
@@ -24,6 +26,14 @@ const HourlyForecast:React.FC = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, state.data.lat, state.data.lon]);
+
+  const horizontalSlide = (toRight: boolean) => {
+    // Slide hourly forecast horizontally on button click
+    const containerElement = document.getElementById('hourly-forecast');
+    const slideValue = toRight ? 110 : -110;
+
+    containerElement && setSlide((containerElement.scrollLeft += slideValue));
+  };
 
   return (
     <div>
@@ -43,8 +53,10 @@ const HourlyForecast:React.FC = () => {
               <div className="pressure">Pressure</div>
               <div className="humidity">Humidity</div>
             </div>
-            <div className="hourly-forecast disable-scrollbars">
-              <div className="scroll-arrows scroll-left">&larr;</div>
+            <div className="hourly-forecast disable-scrollbars" id="hourly-forecast">
+              <div className="scroll-arrows scroll-left" onClick={ () => horizontalSlide(false) }>
+                <img src="/images/arrow.svg" alt="Slide to left"/>
+              </div>
               {
                 state.data.hourly.map((data, index: number) => {
                   return (
@@ -64,7 +76,9 @@ const HourlyForecast:React.FC = () => {
                   );
                 })
               }
-              <div className="scroll-arrows scroll-right">&rarr;</div>
+              <div className="scroll-arrows scroll-right" onClick={ () => horizontalSlide(true) }>
+                <img src="/images/arrow.svg" alt="Slide to right" className="arrow-right" />
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/reducers";
 import { useActions } from "../../hooks/useActions";
@@ -11,6 +11,7 @@ import { cities } from "../../data/cities";
 import { City } from "../../models/city";
 
 const Forecast: React.FC = () => {
+  const [, setSlide] = useState(0);
   const { getForecast, toggleStationaryMetrics } = useActions();
 
   const forecastState = useSelector((state: RootState) => state.forecast);
@@ -28,8 +29,19 @@ const Forecast: React.FC = () => {
       top: 0,
       behavior: 'smooth'
     });
+
     toggleStationaryMetrics(true);
   }
+
+  const horizontalSlide = (toRight: boolean) => {
+    // Slide forecast horizontally on button click
+    const containerElement = document.getElementById('inner-forecast-container');
+    const slideValue = toRight ? 120 : -120;
+
+    if (containerElement) {
+      setSlide((containerElement.scrollLeft += slideValue));
+    }
+  };
 
   return (
     <div className="main-container">
@@ -47,14 +59,18 @@ const Forecast: React.FC = () => {
           <Navigation/>
           <div className="forecast-container">
             <CurrentForecast key={ 0 } currentForecast={ forecastState.data.current } />
-            <div className="inner-forecast-container disable-scrollbars">
-              <div className="scroll-arrows scroll-left">&larr;</div>
+            <div className="inner-forecast-container disable-scrollbars" id="inner-forecast-container">
+              <div className="scroll-arrows scroll-left" onClick={ () => horizontalSlide(false) }>
+                <img src="/images/arrow.svg" alt="Slide to left"/>
+              </div>
               {
                 forecastState.data.daily.map((dailyForecast, index: number) => {
                   return <DailyForecast key={ index } index={ index } dailyForecast={ dailyForecast } />;
                 })
               }
-              <div className="scroll-arrows scroll-right">&rarr;</div>
+              <div className="scroll-arrows scroll-right" onClick={ () => horizontalSlide(true) }>
+                <img src="/images/arrow.svg" alt="Slide to right" className="arrow-right" />
+              </div>
             </div>
           </div>
         </div>

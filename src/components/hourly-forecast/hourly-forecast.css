@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 900px;
+  width: 915px;
   background: #34313B;
   margin: auto;
   border-radius: 5px;
@@ -29,8 +29,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   color: white;
-  padding: 0 1rem;
-  border-right: 1px solid darkgray;
+  padding: 0 1.5rem;
   font-size: 0.9rem;
 }
 @media (max-width: 959.5px) {
@@ -46,7 +45,7 @@
   font-weight: 600;
   height: 1.2rem;
   padding-bottom: 0;
-  color: orange;
+  color: #FFA500FF;
 }
 .hourly-forecast-container .side-titles .date, .hourly-forecast-container .inner-container .date {
   padding-top: 0;
@@ -66,6 +65,7 @@
   flex-direction: row;
   justify-content: flex-start;
   overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 @media (max-width: 959.5px) {
   .hourly-forecast-container .hourly-forecast {
@@ -74,13 +74,12 @@
   }
 }
 .hourly-forecast-container .hourly-forecast .inner-container {
-  border-right: 1px solid darkgray;
   align-items: center;
   margin: 0.5rem 0;
 }
 @media (max-width: 959.5px) {
   .hourly-forecast-container .hourly-forecast .inner-container {
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid #FFA500FF;
     padding-bottom: 1rem;
   }
 }
