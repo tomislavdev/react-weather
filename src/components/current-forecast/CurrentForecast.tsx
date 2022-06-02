@@ -22,7 +22,7 @@ const CurrentForecast:React.FC<CurrentForecastProps> = ({ currentForecast }) => 
         <div className="feels-like">Feels like { Math.floor(currentForecast.feels_like) }°</div>
         <div className="bottom-info">
           <div className="humidity">
-            <img src="/images/drop.svg"  alt="Humidity" />
+            <img src="/images/drop.svg" alt="Humidity" />
             <span>{ currentForecast.humidity } %</span>
           </div>
           <div className="wind">
