@@ -35,6 +35,7 @@
 @media (max-width: 959.5px) {
   .hourly-forecast-container .side-titles, .hourly-forecast-container .inner-container {
     width: 100%;
+    padding: 0;
   }
 }
 .hourly-forecast-container .side-titles > div, .hourly-forecast-container .inner-container > div {
