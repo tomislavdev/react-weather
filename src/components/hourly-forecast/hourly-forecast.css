@@ -55,6 +55,9 @@
 .hourly-forecast-container .side-titles .icon, .hourly-forecast-container .inner-container .icon {
   height: 4rem;
 }
+.hourly-forecast-container .side-titles {
+  font-weight: 500;
+}
 @media (max-width: 959.5px) {
   .hourly-forecast-container .side-titles {
     display: none;
@@ -96,6 +99,15 @@
 @media (max-width: 959.5px) {
   .hourly-forecast-container .hourly-forecast .inner-container > div img {
     width: 100px;
+  }
+}
+.hourly-forecast-container .hourly-forecast .inner-container .info-mobile {
+  padding-right: 1rem;
+  font-weight: 500;
+}
+@media (min-width: 960px) {
+  .hourly-forecast-container .hourly-forecast .inner-container .info-mobile {
+    display: none;
   }
 }
 .hourly-forecast-container .hourly-forecast .inner-container:last-of-type {

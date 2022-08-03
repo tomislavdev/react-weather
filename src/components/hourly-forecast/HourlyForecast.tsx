@@ -67,11 +67,26 @@ const HourlyForecast:React.FC = () => {
                         <img src={ process.env.REACT_APP_WEATHER_API_ICONS_ENDPOINT + data.weather[0].icon + '.png' }
                          alt="Weather" />
                       </div>
-                      <div className="wind-speed">{ data.wind_speed } m/s</div>
-                      <div className="feels-like">{ data.feels_like }°</div>
-                      <div className="cloudiness">{ data.clouds } %</div>
-                      <div className="pressure">{ data.pressure } hPa</div>
-                      <div className="humidity">{ data.humidity } %</div>
+                      <div className="wind-speed">
+                        <div className="info-mobile">Wind speed: </div>
+                        { data.wind_speed } m/s
+                      </div>
+                      <div className="feels-like">
+                        <div className="info-mobile">Feels like: </div>
+                        { data.feels_like }°
+                      </div>
+                      <div className="cloudiness">
+                        <div className="info-mobile">Cloudiness: </div>
+                        { data.clouds } %
+                      </div>
+                      <div className="pressure">
+                        <div className="info-mobile">Pressure: </div>
+                        { data.pressure } hPa
+                      </div>
+                      <div className="humidity">
+                        <div className="info-mobile">Humidity: </div>
+                        { data.humidity } %
+                      </div>
                     </div>
                   );
                 })

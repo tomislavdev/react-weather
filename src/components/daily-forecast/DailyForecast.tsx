@@ -23,7 +23,6 @@ const DailyForecast: React.FC<DailyForecastProps> = ({ dailyForecast, index }) =
         <div className="tooltip">
           <img src="/images/tooltip.png" alt="More info" />
           <div className="more-info">
-            <div>{ currentDayName }</div>
             <div>
               <div>Temperature:</div>
               <div>{ temperatures }</div>

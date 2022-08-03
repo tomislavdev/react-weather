@@ -51,6 +51,7 @@
       height: 4rem
 
   .side-titles
+    font-weight: 500
     @include mobile
       display: none
 
@@ -82,6 +83,12 @@
           width: 100%
           @include mobile
             width: 100px
+
+      .info-mobile
+        padding-right: 1rem
+        font-weight: 500
+        @include desktop
+          display: none
 
     .inner-container:last-of-type
       border: none
