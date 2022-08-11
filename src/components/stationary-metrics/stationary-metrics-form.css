@@ -20,6 +20,12 @@
     width: 350px;
   }
 }
+@media (max-width: 500px) {
+  .form-container .stationary-metrics-form {
+    width: 300px;
+    padding: 0 1rem 2rem 1rem;
+  }
+}
 .form-container .stationary-metrics-form .form-title {
   font-weight: 600;
   font-size: 1.2rem;
@@ -41,6 +47,11 @@
   height: 30px;
   width: 300px;
   padding-left: 0.2rem;
+}
+@media (max-width: 500px) {
+  .form-container .stationary-metrics-form > div input {
+    width: 270px;
+  }
 }
 .form-container .stationary-metrics-form > div .error {
   height: 1rem;

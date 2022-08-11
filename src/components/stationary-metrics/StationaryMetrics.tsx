@@ -42,8 +42,8 @@ const StationaryMetrics: React.FC = () => {
           <label>Username</label>
           <input {...register('username', { required: true, maxLength: 20 })} />
           <div className="error">
-            { errors.username?.type === 'required' && 'Username is required!' }
-            { errors.username?.type === 'maxLength' && 'Username must be between 0 and 20 characters!' }
+            { errors.username?.type === 'required' && 'Username is required.' }
+            { errors.username?.type === 'maxLength' && 'Username must be between 0 and 20 characters.' }
           </div>
         </div>
 
@@ -53,7 +53,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('email', { required: true,  pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })}
           />
           <div className="error">
-            { errors.email && 'Enter a valid email!' }
+            { errors.email && 'Please enter a valid email.' }
           </div>
         </div>
 
@@ -63,7 +63,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('temperature', { required: true, min: -20, max: 60 })}
           />
           <div className="error">
-            { errors.temperature && 'Enter a valid temperature value!' }
+            { errors.temperature && 'Please enter a valid temperature value.' }
           </div>
         </div>
 
@@ -73,7 +73,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('windSpeed', { required: true, min: 0, max: 200 })}
           />
           <div className="error">
-            { errors.windSpeed && 'Enter a valid wind speed value!' }
+            { errors.windSpeed && 'Please enter a valid wind speed value.' }
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('humidity', { required: true, min: 0, max: 100 })}
           />
           <div className="error">
-            { errors.humidity && 'Enter a valid humidity value!' }
+            { errors.humidity && 'Please enter a valid humidity value.' }
           </div>
         </div>
 
@@ -93,7 +93,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('pressure', { required: true, min: 0, max: 3000 })}
           />
           <div className="error">
-            { errors.pressure && 'Enter a valid pressure value!' }
+            { errors.pressure && 'Please enter a valid pressure value.' }
           </div>
         </div>
 
@@ -103,7 +103,7 @@ const StationaryMetrics: React.FC = () => {
             {...register('rain', { required: true, min: 0, max: 1000 })}
           />
           <div className="error">
-            { errors.pressure && 'Enter a valid rain value!' }
+            { errors.pressure && 'Please enter a valid rain value.' }
           </div>
         </div>
 

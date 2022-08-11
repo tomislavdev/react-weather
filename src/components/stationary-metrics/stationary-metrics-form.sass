@@ -18,6 +18,9 @@
     border-radius: $border-radius
     @include mobile
       width: 350px
+    @include mobile-s
+      width: 300px
+      padding: 0 1rem 2rem 1rem
 
     .form-title
       font-weight: 600
@@ -40,6 +43,8 @@
         height: 30px
         width: 300px
         padding-left: 0.2rem
+        @include mobile-s
+          width: 270px
 
       .error
         height: 1rem
