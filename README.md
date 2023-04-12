@@ -16,5 +16,7 @@ For more information about the API: https://openweathermap.org/api/one-call-api
 - Populate `.env` file
 - Run `npm start`
 
-### Create the production build of the app
-- Run `npm run build`
+### Run the app with Docker
+- Run `docker build . -t imageTag` to build the image. You have to replace `imageTag` with a more meaningful name.
+- Run the image with the following command `docker run -d -p 3000:3000 imageTag`
+- Open `localhost:3000` in your browser in order to use the app
