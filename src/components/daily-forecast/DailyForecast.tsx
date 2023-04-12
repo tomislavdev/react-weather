@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import './daily-forecast.sass'
-import { DailyForecastState } from "../../state/reducers/forecastReducer";
+import { DailyForecastState } from "../forecast/forecastSlice";
 
 interface DailyForecastProps {
   dailyForecast: DailyForecastState;

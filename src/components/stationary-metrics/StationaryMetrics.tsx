@@ -1,8 +1,8 @@
 import React from "react";
 import './stationary-metrics-form.sass'
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useActions } from "../../hooks/useActions";
-import { StationaryMetricsData } from "../../state/reducers/stationaryMetricsReducer";
+import { StationaryMetricsData, submitStationaryMetrics, toggleStationaryMetrics } from "./stationaryMetricsSlice";
+import { useAppDispatch } from "../../hooks/useApp";
 
 type Inputs = {
   username: string,
@@ -15,7 +15,7 @@ type Inputs = {
 };
 
 const StationaryMetrics: React.FC = () => {
-  const { toggleStationaryMetrics, submitStationaryMetrics } = useActions();
+  const dispatch = useAppDispatch();
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const submitData: StationaryMetricsData = {
@@ -30,7 +30,7 @@ const StationaryMetrics: React.FC = () => {
       rain_1h: parseFloat(data.rain),
     };
 
-    submitStationaryMetrics(submitData);
+    dispatch(submitStationaryMetrics(submitData));
   };
 
   return (
@@ -108,7 +108,7 @@ const StationaryMetrics: React.FC = () => {
         </div>
 
         <input className="submit-form" type="submit" />
-        <button className="close-form" type="button" onClick={ () => toggleStationaryMetrics(false) }>Close</button>
+        <button className="close-form" type="button" onClick={ () => dispatch(toggleStationaryMetrics(false)) }>Close</button>
       </form>
     </div>
   );

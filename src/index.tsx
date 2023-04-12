@@ -1,14 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './styles/index.sass';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
-import { store } from "./state";
 import Forecast from "./components/forecast/Forecast";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HourlyForecast from "./components/hourly-forecast/HourlyForecast";
+import { store } from "./app/store";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
   <Provider store={ store }>
     <BrowserRouter>
       <Routes>
@@ -16,8 +17,7 @@ ReactDOM.render(
         <Route path="/hourly" element={<HourlyForecast />} />
       </Routes>
     </BrowserRouter>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,7 +1,4 @@
 import React, { ChangeEvent, useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/reducers";
-import { useActions } from "../../hooks/useActions";
 import './forecast.sass'
 import DailyForecast from "../daily-forecast/DailyForecast";
 import Navigation from "../navigation/Navigation";
@@ -9,31 +6,34 @@ import StationaryMetrics from "../stationary-metrics/StationaryMetrics";
 import CurrentForecast from "../current-forecast/CurrentForecast";
 import { cities } from "../../data/cities";
 import { City } from "../../models/city";
+import { getForecast } from "./forecastSlice";
+import { toggleStationaryMetrics } from "../stationary-metrics/stationaryMetricsSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/useApp";
 
 const Forecast: React.FC = () => {
   const [, setSlide] = useState(0);
-  const { getForecast, toggleStationaryMetrics } = useActions();
 
-  const forecastState = useSelector((state: RootState) => state.forecast);
-  const stationaryMetricsIsOpened = useSelector((state: RootState) => state.stationaryMetrics.isOpened);
-  const loadedCity = cities.filter(city => city.name === forecastState.data.timezone?.split('/')[1]);
+  const dispatch = useAppDispatch();
+  const forecastState = useAppSelector(state => state.forecast);
+  const stationaryMetricsIsOpen = useAppSelector(state => state.stationaryMetrics.isOpen);
+  const loadedCity: City[] = cities.filter(city => city.name === forecastState.data.timezone?.split('/')[1]);
 
-  const showCityForecastOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const showCityForecastOnChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     // Get lat and lon of the chosen city
     const city: City = cities.filter((city: City) => city.id === +event.target.value)[0];
-    getForecast(city.lat, city.lon);
+    dispatch(getForecast(city.lat, city.lon));
   };
 
-  const openStationaryMetricsForm = () => {
+  const openStationaryMetricsForm = (): void => {
     window.scroll({
       top: 0,
       behavior: 'smooth'
     });
 
-    toggleStationaryMetrics(true);
+    dispatch(toggleStationaryMetrics(true));
   }
 
-  const horizontalSlide = (toRight: boolean) => {
+  const horizontalSlide = (toRight: boolean): void => {
     // Slide forecast horizontally on button click
     const containerElement = document.getElementById('inner-forecast-container');
     const slideValue = toRight ? 120 : -120;
@@ -78,12 +78,12 @@ const Forecast: React.FC = () => {
 
       <div className="button-container">
         <button className="open-form-button"
-          disabled={ stationaryMetricsIsOpened } onClick={ () => openStationaryMetricsForm()}>
+          disabled={ stationaryMetricsIsOpen } onClick={ () => openStationaryMetricsForm()}>
           Add metrics manually
         </button>
       </div>
 
-      { stationaryMetricsIsOpened && <StationaryMetrics/> }
+      { stationaryMetricsIsOpen && <StationaryMetrics/> }
     </div>
   );
 };

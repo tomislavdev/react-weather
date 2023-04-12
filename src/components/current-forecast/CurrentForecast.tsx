@@ -1,5 +1,5 @@
 import React from "react";
-import { CurrentForecastState } from "../../state/reducers/forecastReducer";
+import { CurrentForecastState } from "../forecast/forecastSlice";
 import './current-forecast.sass'
 
 interface CurrentForecastProps {

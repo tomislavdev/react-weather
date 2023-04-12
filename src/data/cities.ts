@@ -1,5 +1,6 @@
 import { City } from "../models/city";
 
+// Hardcoded cities data, which could and has to be got from a database via API
 export const cities: City[] = [
   { id: 1, name: 'London', lat: '51.507351', lon: '-0.127758' },
   { id: 2, name: 'Paris', lat: '48.856613', lon: '2.352222' },

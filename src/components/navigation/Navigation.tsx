@@ -1,11 +1,10 @@
 import React from "react";
 import './navigation.sass'
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/reducers";
+import { useAppSelector } from "../../hooks/useApp";
 
 const Navigation: React.FC = () => {
-  const state = useSelector((state: RootState) => state.forecast);
+  const state = useAppSelector(state => state.forecast);
   const hourlyUrl = `/hourly?lon=${ state.data.lon }&lat=${ state.data.lat }`;
 
   return (

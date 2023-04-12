@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "../navigation/Navigation";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/reducers";
 import { useLocation } from "react-router-dom";
-import { useActions } from "../../hooks/useActions";
 import './hourly-forecast.sass'
 import moment from "moment";
+import { getForecast } from "../forecast/forecastSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/useApp";
 
 const HourlyForecast:React.FC = () => {
   const [, setSlide] = useState(0);
-  const { getForecast } = useActions();
 
-  const state = useSelector((state: RootState) => state.forecast);
+  const dispatch = useAppDispatch();
+  const state = useAppSelector(state => state.forecast);
   const location = useLocation();
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const HourlyForecast:React.FC = () => {
 
     // Get weather info for these lat and lon if such are missing in the state
     if (Number(lat) !== state.data.lat || Number(lon) !== state.data.lon) {
-      getForecast(lat.toString(), lon.toString());
+      dispatch(getForecast(lat.toString(), lon.toString()));
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
