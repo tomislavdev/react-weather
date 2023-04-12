@@ -59,6 +59,7 @@ export const toggleStationaryMetrics = (isOpen: boolean): AppThunk => (dispatch)
 };
 
 export const submitStationaryMetrics = (data: StationaryMetricsData): AppThunk => async (dispatch) => {
+  const errorMessage = 'An has error occurred. Please try again later.';
   dispatch(submitStationaryMetricsReducer());
 
   try {
@@ -72,10 +73,10 @@ export const submitStationaryMetrics = (data: StationaryMetricsData): AppThunk =
     if (response) {
       dispatch(submitStationaryMetricsSuccessReducer(data));
     } else {
-      dispatch(submitStationaryMetricsErrorReducer('An error occurred. Please try again later.'));
+      dispatch(submitStationaryMetricsErrorReducer(errorMessage));
     }
   } catch (error) {
-    dispatch(submitStationaryMetricsErrorReducer('An error occurred. Please try again later.'));
+    dispatch(submitStationaryMetricsErrorReducer(errorMessage));
   }
 };
 

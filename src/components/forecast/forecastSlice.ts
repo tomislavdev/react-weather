@@ -93,7 +93,7 @@ export const getForecast = (lat: string, lon: string): AppThunk => async (dispat
 
     dispatch(getForecastSuccessReducer(data.data));
   } catch (error) {
-    dispatch(getForecastErrorReducer('An error occurred. Please try again later.'));
+    dispatch(getForecastErrorReducer('An error has occurred. Please try again later.'));
   }
 };
 
