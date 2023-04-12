@@ -80,7 +80,7 @@ export const forecastSlice = createSlice({
 
 export const { getForecastReducer, getForecastSuccessReducer, getForecastErrorReducer } = forecastSlice.actions;
 
-export const getForecast = (lat: string, lon: string): AppThunk => async (dispatch, getState) => {
+export const getForecast = (lat: string, lon: string): AppThunk => async (dispatch) => {
   dispatch(getForecastReducer());
 
   try {

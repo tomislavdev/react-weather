@@ -54,11 +54,11 @@ export const {
   submitStationaryMetricsErrorReducer
 } = stationaryMetricsSlice.actions;
 
-export const toggleStationaryMetrics = (isOpen: boolean): AppThunk => (dispatch, getState) => {
+export const toggleStationaryMetrics = (isOpen: boolean): AppThunk => (dispatch) => {
   dispatch(toggleStationaryMetricsFormReducer(isOpen));
 };
 
-export const submitStationaryMetrics = (data: StationaryMetricsData): AppThunk => async (dispatch, getState) => {
+export const submitStationaryMetrics = (data: StationaryMetricsData): AppThunk => async (dispatch) => {
   dispatch(submitStationaryMetricsReducer());
 
   try {
